@@ -101,6 +101,15 @@ generated `JWT_SECRET`.
 > ephemeral filesystem, so the SQLite file resets on redeploy/sleep. Attach a paid
 > disk or swap to a managed Postgres for durable persistence.
 
+### Why not Vercel / serverless?
+
+This app keeps a live `Y.Doc` per room **in memory** and holds WebSocket connections
+open, and it writes a SQLite file. Serverless platforms (Vercel, Netlify Functions)
+run short-lived, horizontally-scaled instances with an ephemeral filesystem, so Socket.io
+peers can land on different instances and the database resets on every invocation — the
+deploy fails with `FUNCTION_INVOCATION_FAILED`. Use a long-running host (Render, Railway,
+Fly.io) or the Docker image below.
+
 ### Docker
 
 ```bash
