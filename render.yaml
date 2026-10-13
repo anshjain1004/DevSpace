@@ -1,0 +1,19 @@
+# Render Blueprint: one-click deploy from a GitHub repo.
+# Free plan note: the service sleeps after ~15 min idle and its filesystem is
+# ephemeral, so the SQLite file resets on redeploy/sleep. Attach a paid disk
+# (or swap in Postgres) for durable persistence.
+services:
+  - type: web
+    name: devspace
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run setup && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_FILE
+        value: devspace.db
