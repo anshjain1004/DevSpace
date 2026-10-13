@@ -1,0 +1,22 @@
+{
+  "name": "devspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time collaborative code editor with CRDT sync (Yjs), JWT auth and SQLite persistence.",
+  "keywords": ["collaborative-editor", "crdt", "yjs", "socket.io", "react", "codemirror"],
+  "license": "MIT",
+  "author": "Ansh Jain",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm start --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "test": "npm test --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
