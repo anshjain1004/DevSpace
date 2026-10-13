@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
+.card { max-width: 380px; margin: 10vh auto; padding: 24px; background: #1e293b; border-radius: 12px; }
+.card.wide { max-width: 560px; margin-top: 6vh; }
+h1, h2, h3 { margin: 0 0 8px; }
+.muted { color: #94a3b8; font-size: 14px; }
+form { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+input { padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: inherit; flex: 1; }
+button { padding: 10px 14px; border: 0; border-radius: 8px; background: #3b82f6; color: white; cursor: pointer; }
+button.link { background: none; color: #93c5fd; padding: 6px 0; }
+.row { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin: 12px 0; }
+.room { display: flex; justify-content: space-between; padding: 12px; border-radius: 8px; background: #0f172a; margin-top: 8px; cursor: pointer; }
+.room:hover { outline: 1px solid #3b82f6; }
+.error { color: #fca5a5; font-size: 14px; }
+.editor-page { display: flex; flex-direction: column; height: 100vh; }
+.bar { display: flex; gap: 16px; align-items: center; padding: 10px 16px; background: #1e293b; }
+.bar .code { font-family: monospace; color: #94a3b8; }
+.status.ok { color: #86efac; } .status.warn { color: #fcd34d; }
+.cm-host { flex: 1; min-height: 0; background: white; color: #111; }
+.cm-host .cm-editor { height: 100%; }
+.cm-host .cm-scroller { overflow: auto; font-family: ui-monospace, monospace; }
